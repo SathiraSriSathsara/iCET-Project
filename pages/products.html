@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Burgers</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                </tr>
+            </thead>
+            <tbody id="burgersTable"></tbody>
+        </table>
+    </div>
+
+    <h2>Submarines</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                </tr>
+            </thead>
+            <tbody id="submarinesTable"></tbody>
+        </table>
+    </div>
+
+    <h2>Fries</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                </tr>
+            </thead>
+            <tbody id="friesTable"></tbody>
+        </table>
+    </div>
+
+    <h2>Pasta</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                </tr>
+            </thead>
+            <tbody id="pastaTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="../asset/js/products.js"></script>
+
+<script>
+    function createTableRow(id, name, price, discount) {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${id}</td>
+            <td>${name}</td>
+            <td>Rs.${price.toFixed(2)}</td>
+            <td>${discount !== null ? `${discount}%` : '-'}</td>
+        `;
+        return row;
+    }
+
+    function displayItems(items, tableId) {
+        const tableBody = document.getElementById(tableId);
+        for (const itemId in items) {
+            if (items.hasOwnProperty(itemId)) {
+                const itemInfo = items[itemId];
+                const tableRow = createTableRow(itemId, itemInfo.name, itemInfo.price, itemInfo.discount);
+                tableBody.appendChild(tableRow);
+            }
+        }
+    }
+
+    displayItems(burgers, 'burgersTable');
+    displayItems(submarines, 'submarinesTable');
+    displayItems(fries, 'friesTable');
+    displayItems(pasta, 'pastaTable');
+</script>
+
+</body>
+</html>
