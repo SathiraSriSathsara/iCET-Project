@@ -7,7 +7,6 @@ function checkUser(){
     let pass = document.getElementById("user-password").value;
 
     if (user==username && password==pass){
-        alert("Horry!!")
         window.location = "/pages/home.html";
         return false;
     }else{

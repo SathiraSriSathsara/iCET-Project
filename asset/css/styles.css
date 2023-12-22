@@ -10824,3 +10824,14 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.head{
+  background-image: url("../img/bg.png");
+}
+
+.display-4{ 
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  font-size: 45px;
+  text-shadow: 2px 2px #ff0000;
+}
